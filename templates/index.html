@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css"/>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=c4b7d1b0-6539-413f-91ee-d1a02bdcf823&lang=ru_RU"></script>
+    <title>МедСкор</title>
+</head>
+<body>
+
+<div class="main">
+    <header class="header container-fluid">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <a class="logo" href="/"></a>
+            <nav class="header__nav d-flex">
+                <a class="header__nav-item" href="#">О Сервисе</a>
+                <a class="header__nav-item" href="#">Пациентам</a>
+                <a class="header__nav-item" href="#">Партнерам</a>
+            </nav>
+            <a class="header__number" href="tel:+7 495 200-20-20">+7 495 200-20-20</a>
+        </div>
+    </header>
+
+
+    <div class="ambulance d-flex justify-content-center justify-content-lg-start">
+        <div class="map" id="map"></div>
+        <div class="ambulance__wrapper col-12 col-lg-7 col-xl-6">
+            <form class="form d-flex flex-column" id="form">
+
+                <div class="form__body d-flex flex-column">
+                    <h1 class="form__title">Вызов платной скорой помощи в Москве</h1>
+                    <input class="form__input form__from-where" type="text" name="fromWhere" placeholder="Куда приехать?">
+                    <button class="form__address-btn">Добавить адрес назначения</button>
+                    <input class="form__input form__input_to-where" type="text" name="toWhere" placeholder="Куда отвезти?">
+                    <input class="form__input" type="text" name="tel" placeholder="+7 495 200 20 20">
+                </div>
+
+                <div class="form__ambulances">
+                    <div class="form__ambulance form__ambulance_active">
+                        <div>
+                            <p class="form__ambulance-title">Линейная</p>
+                            <p class="form__ambulance-text">3,1 км • 10 мин • 2099 ₽</p>
+                        </div>
+                        <span class="ambulance__car"></span>
+                    </div>
+                    <div class="form__ambulance">
+                        <div>
+                            <p class="form__ambulance-title">Линейная</p>
+                            <p class="form__ambulance-text">3,1 км • 10 мин • 2099 ₽</p>
+                        </div>
+                        <span class="ambulance__car"></span>
+                    </div>
+                    <div class="form__ambulance">
+                        <div>
+                            <p class="form__ambulance-title">Линейная</p>
+                            <p class="form__ambulance-text">3,1 км • 10 мин • 2099 ₽</p>
+                        </div>
+                        <span class="ambulance__car"></span>
+                    </div>
+                    <div class="form__ambulance">
+                        <div>
+                            <p class="form__ambulance-title">Линейная</p>
+                            <p class="form__ambulance-text">3,1 км • 10 мин • 2099 ₽</p>
+                        </div>
+                        <span class="ambulance__car"></span>
+                    </div>
+                </div>
+                <button class="details-btn">Дополнительная информация<span></span></button>
+
+                <div class="details d-flex flex-column">
+                    <input class="form__input" type="text" name="name" placeholder="ФИО Больного">
+                    <input class="form__input" type="text" name="age" placeholder="Возраст, полных лет">
+                    <input class="form__input" type="text" name="diagnosis" placeholder="Диагноз">
+                    <input class="form__input" type="text" name="treatment" placeholder="Проведенное лечение">
+                    <input class="form__input" type="text" name="escort" placeholder="Количество сопровождающих лиц">
+                    <textarea class="form__input" type="text" name="comments" placeholder="Комментарий к вызову"></textarea>
+                </div>
+            </form>
+
+            <div class="ambulance__btn-wrapper">
+                <button type="submit" class="ambulance__btn" form="form">Вызвать</button>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__head d-flex flex-column flex-sm-row justify-content-between align-items-center">
+                <a class="logo footer__logo mb-4 mb-sm-0" href="/"></a>
+                <div class="footer__apps d-flex">
+                    <a class="footer__app-btn footer__app-btn_ios" href="#"></a>
+                    <a class="footer__app-btn footer__app-btn_android" href="#"></a>
+                </div>
+            </div>
+            <div class="footer__body row">
+                <ul class="footer__links col-md">
+                    <li class="footer__title">Пользователям</li>
+                    <li class="footer__link"><a href="#">Мобильное приложение</a></li>
+                    <li class="footer__link"><a href="#">Написать в поддержку</a></li>
+                    <li class="footer__link"><a href="#">Узнать о безопасности</a></li>
+                    <li class="footer__link"><a href="#">Вызвать скорую помощь</a></li>
+                </ul>
+                <ul class="footer__links col-md">
+                    <li class="footer__title">Партнерам</li>
+                    <li class="footer__link"><a href="#">Мобильное приложение</a></li>
+                    <li class="footer__link"><a href="#">Мобильное приложение</a></li>
+                </ul>
+                <div class="col-lg-6">
+                    <div class="footer__text-block">
+                        <p class="footer__title">О сервисе</p>
+                        <p class="footer__text"><span>МедСкор</span> - оказывает широкий спектр платных услуг скорой
+                            медицинской
+                            помощи в Москве и Московской области, а также по всей России! Наша деятельность закреплена
+                            федеральной лицензией на медицинскую деятельность.</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="footer__copyright d-flex flex-column flex-sm-row justify-content-between align-items-center">
+                <p class="mb-2 mb-sm-0">© Copyrigth 2020. LLC Med Score</p>
+                <div class="footer__socials d-flex">
+                    <a class="footer__social" href="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 20 16">
+                            <path fill="#F54436"
+                                  d="M20 0c-.78.463-2.345 1.094-3.265 1.276-.027.007-.049.016-.075.023C15.847.497 14.733 0 13.5 0 11.015 0 9 2.015 9 4.5c0 .131-.011.372 0 .5-3.353 0-5.905-1.756-7.735-4-.199.5-.286 1.29-.286 2.032 0 1.401 1.095 2.777 2.8 3.63-.314.081-.66.139-1.02.139-.581 0-1.196-.153-1.759-.617v.051c0 1.958 2.078 3.291 3.926 3.662-.375.221-1.131.243-1.5.243-.26 0-1.18-.119-1.426-.165.514 1.605 2.368 2.507 4.135 2.539C4.753 13.598 3.794 14 .964 14H0c1.788 1.146 4.065 2.001 6.347 2.001C13.777 16.001 18 10.338 18 5l-.005-.447c0-.018.005-.035.005-.053 0-.027-.008-.053-.008-.08-.003-.136-.006-.263-.009-.329C18.773 3.521 19.458 2.81 20 2c-.725.322-1.503.538-2.32.636C18.514 2.136 19.699.944 20 0z"/>
+                        </svg>
+                    </a>
+                    <a class="footer__social" href="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                            <path fill="#F54436"
+                                  d="M10 0C4.477 0 0 4.5 0 10.052c0 5.039 3.693 9.2 8.505 9.927v-7.264H6.031v-2.642h2.474V8.315c0-2.911 1.411-4.189 3.818-4.189 1.153 0 1.762.086 2.051.125v2.306h-1.642c-1.022 0-1.379.974-1.379 2.071v1.445h2.995l-.406 2.642h-2.588V20C16.235 19.336 20 15.14 20 10.052 20 4.5 15.523 0 10 0z"/>
+                        </svg>
+                    </a>
+                    <a class="footer__social" href="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                            <path fill="#F54436"
+                                  d="M5 0C2.239 0 0 2.239 0 5v8c0 2.761 2.239 5 5 5h8c2.761 0 5-2.239 5-5V5c0-2.761-2.239-5-5-5H5zm10 2c.552 0 1 .448 1 1s-.448 1-1 1-1-.448-1-1 .448-1 1-1zM9 4c2.761 0 5 2.239 5 5s-2.239 5-5 5-5-2.239-5-5 2.239-5 5-5zm0 2C7.343 6 6 7.343 6 9s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3z"/>
+                        </svg>
+                    </a>
+                    <a class="footer__social" href="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 20 16">
+                            <path fill="#F54436"
+                                  d="M19.582 2.186c-.23-.86-.908-1.538-1.768-1.768C16.254 0 10 0 10 0S3.746 0 2.186.418c-.86.23-1.538.908-1.768 1.768C0 3.746 0 8 0 8s0 4.254.418 5.814c.23.86.908 1.538 1.768 1.768C3.746 16 10 16 10 16s6.254 0 7.814-.418c.861-.23 1.538-.908 1.768-1.768C20 12.254 20 8 20 8s0-4.254-.418-5.814zM8 11.464V4.536L14 8l-6 3.464z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+<script src="../static/js/index.js"></script>
+</body>
+</html>
