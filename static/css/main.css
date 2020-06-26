@@ -361,6 +361,7 @@ html, body {
   width: calc(50% - 15px);
   margin-bottom: 1.5rem;
   padding: 1rem 0 1rem 1rem;
+  background: linear-gradient(rgba(25, 37, 46, 0.02), rgba(25, 37, 46, 0.02)) no-repeat left center / 85% 100%;
 }
 
 .form__ambulance_active {
@@ -563,9 +564,7 @@ html, body {
   .form__ambulance {
     width: 100%;
   }
-  .form__body {
-    padding: 0 1rem 22px;
-  }
+
   .form__ambulances {
     padding: 30px 1rem 0;
   }

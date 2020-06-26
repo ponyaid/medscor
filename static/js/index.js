@@ -42,7 +42,8 @@ addressBtn && addressBtn.addEventListener('click', e => {
 const selectItems = [].slice.call(document.getElementsByClassName('form__select-item'));
 
 selectItems.forEach((element, index) => {
-    element.addEventListener('mouseover', e => {
+    element.addEventListener('mousedown', e => {
+        console.log(e.currentTarget.querySelector('p').innerHTML);
         let input = document.activeElement;
         input.value = e.currentTarget.querySelector('p').innerHTML;
     });
