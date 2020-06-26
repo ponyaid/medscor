@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86e47973-f6f3-4ffa-bee1-9d3d35d961c4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/btn-app-store.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/btn-app-store.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/btn-google-play.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/btn-google-play.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,11 +66,18 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1592821317183</updated>
-      <workItem from="1592821327420" duration="21491000" />
+      <workItem from="1592821327420" duration="22270000" />
+      <workItem from="1593103678899" duration="10269000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="399" y="282" key="com.intellij.ide.util.TipDialog" timestamp="1593103680064">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="399" y="282" key="com.intellij.ide.util.TipDialog/0.23.1440.877@0.23.1440.877" timestamp="1593103680064" />
   </component>
 </project>

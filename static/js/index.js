@@ -21,7 +21,7 @@ function initMap() {
 const detailsBtn = document.querySelector('.details-btn'),
     details = document.querySelector('.details'),
     addressBtn = document.querySelector('.form__address-btn'),
-    inputToWhere = document.querySelector('.form__input_to-where');
+    inputToWhere = document.querySelector('.form__input-wrapper_to');
 
 
 detailsBtn && detailsBtn.addEventListener('click', e => {
@@ -33,9 +33,19 @@ detailsBtn && detailsBtn.addEventListener('click', e => {
 
 addressBtn && addressBtn.addEventListener('click', e => {
     e.preventDefault();
-    inputToWhere.classList.toggle('form__input_to-where_active');
+    inputToWhere.classList.toggle('form__input-wrapper_to_active');
     addressBtn.parentNode.removeChild(addressBtn);
     myMap.container.fitToViewport();
+});
+
+
+const selectItems = [].slice.call(document.getElementsByClassName('form__select-item'));
+
+selectItems.forEach((element, index) => {
+    element.addEventListener('mouseover', e => {
+        let input = document.activeElement;
+        input.value = e.currentTarget.querySelector('p').innerHTML;
+    });
 });
 
 

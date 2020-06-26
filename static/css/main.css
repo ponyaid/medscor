@@ -54,6 +54,10 @@ html, body {
   box-shadow: 0 4px 16px 0 rgba(25, 37, 46, 0.07);
 }
 
+.header__menu-btn {
+    display: none;
+}
+
 .logo {
   width: 151px;
   height: 34px;
@@ -74,7 +78,8 @@ html, body {
   text-decoration: initial;
 }
 
-.header__number {
+.header__number::before {
+  content: '+7 495 200-20-20';
   font-size: 24px;
   font-weight: 600;
   line-height: 1.42;
@@ -82,7 +87,7 @@ html, body {
   transition: opacity .2s ease;
 }
 
-.header__number:hover {
+.header__number:hover::before {
   opacity: .7;
   color: #f54436;
   text-decoration: initial;
@@ -99,14 +104,13 @@ html, body {
 }
 
 .footer__app-btn {
-  width: 130px;
+  width: 136px;
   height: 40px;
 }
 
 .footer__app-btn + .footer__app-btn { margin-left: .5rem; }
 
 .footer__app-btn_ios {
-  width: 120px;
   background: url(../img/btn-app-store.svg) no-repeat right center / cover;
 }
 
@@ -240,7 +244,73 @@ html, body {
   margin-bottom: 2.5rem;
 }
 
+.form__title_btn {
+  cursor: pointer;
+  color: #f54436;
+}
+
+.form__title_btn::after {
+  display: inline-block;
+  content: '';
+  width: 16px;
+  height: 16px;
+  margin-left: .5rem;
+  background: url(../img/ic-arrow-details.svg) no-repeat center / contain;
+}
+
+.form__input-wrapper {
+  position: relative;
+}
+
+.form__input-wrapper_to {
+  display: none;
+}
+
+.form__input-wrapper::before {
+  position: absolute;
+  margin: auto 0;
+  top: 0;
+  left: 1rem;
+  bottom: .5rem;
+  content: '';
+  width: 15px;
+  height: 15px;
+  background: #fff;
+  border-radius: 100%;
+}
+
+.form__input-wrapper_from::before {
+  border: 5px solid #f54436;
+  box-shadow: 0 2px 6px 0 rgba(245, 68, 54, 0.4);
+}
+
+.form__input-wrapper_to::before {
+  border: 5px solid #3679f5;
+  box-shadow: 0 2px 6px 0 rgba(54, 121, 245, 0.4);
+}
+
+.form__input-wrapper_from::after {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.86;
+  letter-spacing: 1.4px;
+  color: #f54436;
+  height: 1.5rem;
+  position: absolute;
+  margin: auto 0;
+  top: 0;
+  right: 1rem;
+  bottom: .5rem;
+  content: 'Моя геопозиция';
+}
+
+.form__input-wrapper:focus-within::after {
+  display: none;
+}
+
 .form__input {
+  width: 100%;
   color: #19252e;
   font-size: 18px;
   font-weight: 500;
@@ -251,12 +321,8 @@ html, body {
   margin-bottom: .5rem;
 }
 
-.form__input_first::before {
-  width: 6px;
-  height: 6px;
-  background-color: #ffffff;
-  border-radius: 100%;
-  border: 5px solid #f54436;
+.form__input-wrapper .form__input {
+  padding-left: 3rem;
 }
 
 .form__address-btn {
@@ -268,7 +334,7 @@ html, body {
   letter-spacing: 1.4px;
   color: #19252e;
   margin-top: .5rem;
-  margin-bottom: 30px;
+  margin-bottom: 2rem;
 }
 
 .form__address-btn::before {
@@ -294,7 +360,7 @@ html, body {
   justify-content: space-between;
   width: calc(50% - 15px);
   margin-bottom: 1.5rem;
-  padding: 10px 0 10px 1rem;
+  padding: 1rem 0 1rem 1rem;
 }
 
 .form__ambulance_active {
@@ -356,6 +422,48 @@ html, body {
   box-shadow: 0 8px 24px -6px rgba(245, 68, 54, 0.4);
 }
 
+.form__select {
+  display: none;
+  border: 1px solid rgba(25, 37, 46, 0.1);
+  position: absolute;
+  top: calc(100% - 9px);
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background: #fff;
+}
+
+.form__select-item {
+  padding: 1rem 2rem;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.63;
+  letter-spacing: 0.44px;
+  color: #19252e;
+}
+
+.form__select-item p {
+  margin: 0;
+}
+
+.form__select-item p:last-child {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.43;
+  letter-spacing: 0.39px;
+  color: rgba(25, 37, 46, 0.5);
+}
+
+.form__select-item:hover {
+  border-top: 1px solid rgba(25, 37, 46, 0.1);
+  border-bottom: 1px solid rgba(25, 37, 46, 0.1);
+  background-color: #f5f7f8;
+}
+
+.form__input-wrapper:focus-within .form__select {
+  display: inherit;
+}
+
 .details-btn {
   display: flex;
   align-items: center;
@@ -387,25 +495,71 @@ html, body {
   display: flex!important;
 }
 
-.form__input_to-where {
-  display: none;
-}
-
-.form__input_to-where_active {
+.form__input-wrapper_to_active {
   display: initial;
 }
 
 @media (max-width: 768px) {
+  .header {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
   .header__nav {
     display: none!important;
   }
+
   .header__number {
-    font-size: 18px;
-    margin-top: .5em;
+    margin-left: auto;
+  }
+
+  .header__number::before {
+    display: flex;
+    width: 22px;
+    height: 22px;
+    content: '';
+    background: url(../img/ic-phone-call.svg) no-repeat center / contain;
+  }
+
+  .header__menu-btn {
+    margin-left: 2rem;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    background: url(../img/combined-shape.svg) no-repeat center /contain;
+  }
+
+  .map {
+    display: none;
+  }
+
+  .form {
+    padding: 0;
+    box-shadow: inherit;
+  }
+
+  .form__body {
+    padding: 0 0 22px;
+  }
+
+  .form__title {
+    margin-bottom: 2rem;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.45;
+    letter-spacing: 0.61px;
+  }
+
+  .form__input {
+    padding: 10px 1rem;
   }
 }
 
 @media (max-width: 640px) {
+  .form__input-wrapper_from::after {
+    display: none!important;
+  }
+
   .form__ambulance {
     width: 100%;
   }
@@ -416,12 +570,10 @@ html, body {
     padding: 30px 1rem 0;
   }
   .details-btn {
+    font-size: 12px;
     padding: .5rem 1rem;
   }
   .details {
     padding: 2.5rem 1rem;
-  }
-  .form__address-btn {
-    font-size: 12px;
   }
 }

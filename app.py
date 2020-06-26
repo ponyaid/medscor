@@ -53,8 +53,6 @@ def form():
         escort = request.json.get('escort')
         comments = request.json.get('comments')
 
-        print(name, tel)
-
         msg = Message('Новая заявка с сайта!',
                       sender=SENDER,
                       recipients=RECIPIENTS)

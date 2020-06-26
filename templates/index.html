@@ -13,14 +13,15 @@
 
 <div class="main">
     <header class="header container-fluid">
-        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <div class="d-flex justify-content-between align-items-center">
             <a class="logo" href="/"></a>
             <nav class="header__nav d-flex">
                 <a class="header__nav-item" href="#">О Сервисе</a>
                 <a class="header__nav-item" href="#">Пациентам</a>
                 <a class="header__nav-item" href="#">Партнерам</a>
             </nav>
-            <a class="header__number" href="tel:+7 495 200-20-20">+7 495 200-20-20</a>
+            <a class="header__number" href="tel:+7 495 200-20-20"></a>
+            <button class="header__menu-btn"></button>
         </div>
     </header>
 
@@ -31,15 +32,59 @@
             <form class="form d-flex flex-column" id="form">
 
                 <div class="form__body d-flex flex-column">
-                    <h1 class="form__title">Вызов платной скорой помощи в Москве</h1>
-                    <input class="form__input form__from-where" type="text" name="fromWhere" placeholder="Куда приехать?">
+                    <h1 class="form__title">Вызов платной скорой помощи в <span class="form__title_btn">Москве</span>
+                    </h1>
+                    <div class="form__input-wrapper form__input-wrapper_from">
+                        <input class="form__input form__from-where" type="text" name="fromWhere"
+                               placeholder="Куда приехать?">
+                        <div class="form__select">
+                            <div class="form__select-item">
+                                <p>Статуя свободы</p>
+                                <p>Памятник, мемориал • Джерси-Сити, остров Свободы</p>
+                            </div>
+                            <div class="form__select-item">
+                                <p>Садовое кольцо, Мира, 14с2</p>
+                                <p>Москва, Россия</p>
+                            </div>
+                            <div class="form__select-item">
+                                <p>Садовое Черногрязкая улица</p>
+                                <p>Москва, Россия</p>
+                            </div>
+                            <div class="form__select-item">
+                                <p>Садовое кольцо</p>
+                                <p>Гостиница, Москва, проспект Мира, 14с2</p>
+                            </div>
+                        </div>
+                    </div>
+
                     <button class="form__address-btn">Добавить адрес назначения</button>
-                    <input class="form__input form__input_to-where" type="text" name="toWhere" placeholder="Куда отвезти?">
-                    <input class="form__input" type="text" name="tel" placeholder="+7 495 200 20 20">
+                    <div class="form__input-wrapper form__input-wrapper_to">
+                        <input class="form__input" type="text" name="toWhere"
+                               placeholder="Куда отвезти?">
+                        <div class="form__select">
+                            <div class="form__select-item">
+                                <p>Статуя свободы</p>
+                                <p>Памятник, мемориал • Джерси-Сити, остров Свободы</p>
+                            </div>
+                            <div class="form__select-item">
+                                <p>Садовое кольцо, Мира, 14с2</p>
+                                <p>Москва, Россия</p>
+                            </div>
+                            <div class="form__select-item">
+                                <p>Садовое Черногрязкая улица</p>
+                                <p>Москва, Россия</p>
+                            </div>
+                            <div class="form__select-item">
+                                <p>Садовое кольцо</p>
+                                <p>Гостиница, Москва, проспект Мира, 14с2</p>
+                            </div>
+                        </div>
+                    </div>
+                    <input class="form__input" type="text" id="tel" name="tel" placeholder="+7 495 200 20 20">
                 </div>
 
                 <div class="form__ambulances">
-                    <div class="form__ambulance form__ambulance_active">
+                    <div class="form__ambulance">
                         <div>
                             <p class="form__ambulance-title">Линейная</p>
                             <p class="form__ambulance-text">3,1 км • 10 мин • 2099 ₽</p>
@@ -76,7 +121,8 @@
                     <input class="form__input" type="text" name="diagnosis" placeholder="Диагноз">
                     <input class="form__input" type="text" name="treatment" placeholder="Проведенное лечение">
                     <input class="form__input" type="text" name="escort" placeholder="Количество сопровождающих лиц">
-                    <textarea class="form__input" type="text" name="comments" placeholder="Комментарий к вызову"></textarea>
+                    <textarea class="form__input" type="text" name="comments"
+                              placeholder="Комментарий к вызову"></textarea>
                 </div>
             </form>
 
@@ -153,6 +199,17 @@
     </footer>
 
 </div>
+
+<script src="https://unpkg.com/imask"></script>
+
+<script>
+    let element = document.getElementById('tel');
+    let patternMask = IMask(element, {
+        mask: '+{7} (000) 000-00-00',
+        lazy: false,
+    });
+</script>
+
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
